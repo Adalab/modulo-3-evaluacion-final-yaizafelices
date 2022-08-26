@@ -12,6 +12,7 @@ import getDataApi from '../services/charactersHarryPotterApi';
 
 //COMPONENTS//
 import Header from "./Header";
+import Footer from "./Footer";
 
 function App() {
 
@@ -34,13 +35,7 @@ function App() {
         <section></section>
 
       </main>
-      <footer>
-        <div>
-          <p>Created by Yaiza Soria Felices 2022</p>
-          
-          <span>Examen final módulo 3 ADALAB</span>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
