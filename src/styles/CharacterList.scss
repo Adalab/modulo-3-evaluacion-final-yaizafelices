@@ -1,0 +1,42 @@
+.list{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style-type: none;
+}
+
+.character{
+    height: 170px;
+    width: 100px;
+    margin-bottom: 50px;
+    justify-content: center;
+    background-color: grey;
+    margin: 10px;
+
+    
+    @media all and (min-width: 768px) {
+        height: 290px;
+        width: 200px;
+      }
+
+    &__image{
+        height: 140px;
+        width: 100px;
+
+        @media all and (min-width: 768px) {
+            height: 240px;
+            width: 200px;
+          }
+    }
+
+    &__name, &__data{
+        font-size: 10px;
+        text-align: center;
+        margin: 0;
+
+ 
+        @media all and (min-width: 768px) {
+            font-size: 18px;
+          }
+    }
+}

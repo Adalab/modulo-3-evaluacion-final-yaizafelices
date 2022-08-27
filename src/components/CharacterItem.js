@@ -3,13 +3,14 @@
 function CharacterItem(props) {
 
     return (
-        <li >
+        <li className="character">
                 <img
                     src={props.character.image}
+                    className="character__image"
                     alt={`Foto de ${props.character.name}`}
                     title={`Foto de ${props.character.name}`}></img>
-                <h4 >{props.character.name}</h4>
-                <p >{`${props.character.species}`}</p>
+                <h4 className="character__name">{props.character.name}</h4>
+                <p className="character__data">{`${props.character.species}`}</p>
         </li>)
 
 }
