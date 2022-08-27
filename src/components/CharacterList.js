@@ -1,4 +1,4 @@
-import CharacterItem from './CharacterItem';
+import CharacterCard from './CharacterCard';
 import '../styles/CharacterList.scss';
 
 
@@ -6,7 +6,7 @@ const CharacterList=(props) =>{
 
     const characterElements = props.dataCharater.map((item) => {
         return (
-            <CharacterItem character={item} key={item.id} />
+            <CharacterCard character={item} key={item.id} />
         );
     });
 

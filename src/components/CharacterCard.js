@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
+import imageDefault from '../images/imageDefault.jpg';
 
-const CharacterItem =(props)=> {
+const CharacterCard =(props)=> {
+
+    if (props.character.image === "") {
+        props.character.image = imageDefault;
+    }
 
     return (
         <li className="character">
@@ -17,4 +22,4 @@ const CharacterItem =(props)=> {
 
 }
 
-export default CharacterItem;
+export default CharacterCard;

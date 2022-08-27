@@ -12,16 +12,18 @@ import getDataApi from '../services/charactersHarryPotterApi';
 
 //COMPONENTS//
 import Header from "./Header";
+import Filters from "./Filters";
 import CharacterList from "./CharacterList";
 import CharacterDetail from "./CharacterDetail";
 import Footer from "./Footer";
-// import CharacterList from "./CharacterList";
+
 
 function App() {
 
   //STATE VARIABLES//
 
   const [dataCharater, setDataCharater] = useState([]);
+  const [filterByCharacter, setFilterByCharacter] = useState("");
 
     // FETCH //
     useEffect(() => {
@@ -31,13 +33,33 @@ function App() {
       })
     }, []);
 
+
+    //FILTER BY CHARACTER//
+    const handleFilterByCharacter = (value)=>{
+      setFilterByCharacter(value);
+    }
+
+    const characterFilters = dataCharater
+    .filter((character) => {
+      if (filterByCharacter === "all") {
+        return true;
+      } else {
+        return character.name.toLowerCase().includes(filterByCharacter.toLowerCase());
+      }
+      })
+
+
+
       //OBTAIN ID OF THE CHARACTER SELECTED//
   const { pathname } = useLocation();
   console.log(pathname);
   const dataPath = matchPath("/character/:characterId", pathname);
 
   const characterId = dataPath !== null ? dataPath.params.characterId : null;
-  const characterFound = dataCharater.find(user => { return dataCharater.id === characterId });
+  const characterFound = dataCharater.find(dataCharater => { return dataCharater.id === characterId });
+
+
+
 
          
     
@@ -48,10 +70,21 @@ function App() {
     <div className="completeHtml">
       <Header />
       <Routes>
-        <Route path="/" element={
-          <CharacterList dataCharater={dataCharater}/>
+        <Route 
+        path="/" 
+        element={
+          <>
+            <Filters 
+              characterFilters={characterFilters}
+              handleFilterByCharacter={handleFilterByCharacter}
+            />
+            <CharacterList dataCharater={characterFilters}/>
+
+          </>
         }/>
-        <Route path="/character/:characterId" element={
+        <Route 
+        path="/character/:characterId" 
+        element={
           <CharacterDetail character={characterFound}/>
           }/>
           
