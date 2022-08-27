@@ -12,6 +12,7 @@
     justify-content: center;
     background-color: grey;
     margin: 10px;
+    
 
     
     @media all and (min-width: 768px) {
@@ -29,14 +30,19 @@
           }
     }
 
-    &__name, &__data{
+    &__data{
         font-size: 10px;
         text-align: center;
         margin: 0;
+        text-decoration: none;
+        color:black;
+  
 
  
         @media all and (min-width: 768px) {
             font-size: 18px;
           }
     }
+
+
 }

@@ -2,7 +2,7 @@ import CharacterItem from './CharacterItem';
 import '../styles/CharacterList.scss';
 
 
-function CharacterList(props) {
+const CharacterList=(props) =>{
 
     const characterElements = props.dataCharater.map((item) => {
         return (
