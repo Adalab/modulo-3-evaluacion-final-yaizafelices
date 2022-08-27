@@ -12,6 +12,7 @@ import getDataApi from '../services/charactersHarryPotterApi';
 
 //COMPONENTS//
 import Header from "./Header";
+import CharacterList from "./CharacterList";
 import Footer from "./Footer";
 // import CharacterList from "./CharacterList";
 
@@ -29,10 +30,7 @@ function App() {
       })
     }, []);
 
-    //PAINT ALL THE CHARACTER FROM DE API
-
-
-      
+         
     
 
 
@@ -40,22 +38,7 @@ function App() {
   return (
     <div className="completeHtml">
       <Header />
-      <main>
-      <section>
-        <ul>
-          <li className="character">
-                  <img
-                      className="character__img"
-                      src={dataCharater.image}
-                      alt={`Foto de ${dataCharater.name}`}
-                      title={`Foto de ${dataCharater.name}`}></img>
-                  <h4 className="character__name">{dataCharater.name}</h4>
-                  <p className="character__description">{`${dataCharater.species}`}</p>
-            </li>
-        </ul>
-      </section>
-
-      </main>
+      <CharacterList dataCharater={dataCharater}/>
       <Footer />
     </div>
   );
