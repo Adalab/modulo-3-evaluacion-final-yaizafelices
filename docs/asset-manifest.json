@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "./static/css/main.ddc893ef.css",
-    "main.js": "./static/js/main.d918b561.js",
+    "main.css": "./static/css/main.3fd00fd3.css",
+    "main.js": "./static/js/main.1084a58c.js",
     "static/media/background6.jpg": "./static/media/background6.9808e97facd6ad4f3ad5.jpg",
     "static/media/imageDefault.jpg": "./static/media/imageDefault.ad1e38688d7fb568ef79.jpg",
     "static/media/header-hp.png": "./static/media/header-hp.f56b67d8b79489d11a0c.png",
     "index.html": "./index.html",
-    "main.ddc893ef.css.map": "./static/css/main.ddc893ef.css.map",
-    "main.d918b561.js.map": "./static/js/main.d918b561.js.map"
+    "main.3fd00fd3.css.map": "./static/css/main.3fd00fd3.css.map",
+    "main.1084a58c.js.map": "./static/js/main.1084a58c.js.map"
   },
   "entrypoints": [
-    "static/css/main.ddc893ef.css",
-    "static/js/main.d918b561.js"
+    "static/css/main.3fd00fd3.css",
+    "static/js/main.1084a58c.js"
   ]
 }
