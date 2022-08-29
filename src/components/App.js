@@ -24,6 +24,7 @@ function App() {
 
   const [dataCharater, setDataCharater] = useState([]);
   const [filterByCharacter, setFilterByCharacter] = useState("");
+  const [filterByHouse, setFilterByHouse] = useState("Gryffindor");
 
     // FETCH //
     useEffect(() => {
@@ -34,9 +35,13 @@ function App() {
     }, []);
 
 
-    //FILTER BY CHARACTER//
+    //FILTER BY CHARACTER AND BY HOUSE//
     const handleFilterByCharacter = (value)=>{
       setFilterByCharacter(value);
+    }
+
+    const handleFilterByHouse = (value)=>{
+      setFilterByHouse(value);
     }
 
     const characterFilters = dataCharater
@@ -47,6 +52,16 @@ function App() {
         return character.name.toLowerCase().includes(filterByCharacter.toLowerCase());
       }
       })
+    .filter((character) => {
+        if (filterByHouse === 'all') {
+          return true;}
+        else {return (character.house === filterByHouse);
+        }
+      })
+    
+
+  
+
 
 
 
@@ -77,8 +92,12 @@ function App() {
             <Filters 
               characterFilters={characterFilters}
               handleFilterByCharacter={handleFilterByCharacter}
+              filterByCharacter={filterByCharacter}
+              handleFilterByHouse={handleFilterByHouse}
+              filterByHouse={filterByHouse}
             />
-            <CharacterList dataCharater={characterFilters}/>
+            <CharacterList dataCharater={characterFilters}
+            />
 
           </>
         }/>

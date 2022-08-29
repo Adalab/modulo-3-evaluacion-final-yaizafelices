@@ -8,6 +8,7 @@ const getDataApi = () => {
                     image: character.image,
                     name: character.name,
                     species: character.species,
+                    house: character.house,
                 }
             });
             return dataClean;

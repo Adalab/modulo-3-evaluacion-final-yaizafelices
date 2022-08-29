@@ -12,7 +12,7 @@ const FilterByCharacter = (props) => {
             type="text" 
             id="FilterByCharacter" 
             onChange={handleFilterByCharacter} 
-            value={props.FilterByCharacter} />
+            value={props.filterByCharacter} />
         </>
     );
 
