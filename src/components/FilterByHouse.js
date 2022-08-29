@@ -5,12 +5,12 @@ const FilterByHouse = (props) => {
     }
 
     return (
-        <form>
+        <fieldset className="filter">
             <label
-                className=""
+                className="filter__label"
                 htmlFor="house">Selecciona la casa:</label>
             <select
-                className=""
+                className="filter__input"
                 name="house"
                 id="house"
                 value={props.filterByHouse}
@@ -22,7 +22,7 @@ const FilterByHouse = (props) => {
                 <option value="">Otros</option>
                 <option value="all">Todas</option>
             </select>
-        </form>
+        </fieldset>
 
     );
 

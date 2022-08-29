@@ -5,15 +5,15 @@ const FilterByCharacter = (props) => {
     }
 
     return (
-        <form>
-            <label className="label-character" htmlFor="FilterByCharacter">Buscar por personaje</label>
+        <fieldset className="filter">
+            <label className="filter__label" htmlFor="FilterByCharacter">Buscar por personaje</label>
             <input 
-            className="inputCharacter"
+            className="filter__input"
             type="text" 
             id="FilterByCharacter" 
             onChange={handleFilterByCharacter} 
             value={props.filterByCharacter} />
-        </form>
+        </fieldset>
     );
 
 }

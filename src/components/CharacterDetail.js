@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
+
 const CharacterDetail=(props) =>{
 
     return (
         <section className="character__detail">
             <Link to='/' className=''>
-                <p className='character__detail-link'>Home</p>
+                <p className='character__detail-link'>Volver</p>
+                <i class="fa-solid fa-wand-sparkles"></i>
             </Link>
                 <img
                     src={props.character.image}
@@ -19,7 +21,5 @@ const CharacterDetail=(props) =>{
                 <p className="character__detail-data">{`${props.character.species}`}</p>
                 <p className="character__detail-data">{`${props.character.alternate_names}`}</p>
         </section>)
-
 }
-
 export default CharacterDetail;
