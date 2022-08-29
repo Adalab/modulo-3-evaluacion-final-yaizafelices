@@ -5,7 +5,7 @@ const FilterByCharacter = (props) => {
     }
 
     return (
-        <>
+        <form>
             <label className="label-character" htmlFor="FilterByCharacter">Buscar por personaje</label>
             <input 
             className="inputCharacter"
@@ -13,7 +13,7 @@ const FilterByCharacter = (props) => {
             id="FilterByCharacter" 
             onChange={handleFilterByCharacter} 
             value={props.filterByCharacter} />
-        </>
+        </form>
     );
 
 }

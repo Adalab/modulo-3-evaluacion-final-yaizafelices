@@ -9,6 +9,10 @@ const getDataApi = () => {
                     name: character.name,
                     species: character.species,
                     house: character.house,
+                    alive: character.alive,
+                    gender: character.gender,
+                    alternate_names: character.alternate_names,
+                    ancestry: character.ancestry,
                 }
             });
             return dataClean;

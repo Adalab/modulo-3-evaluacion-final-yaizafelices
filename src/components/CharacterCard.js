@@ -16,7 +16,7 @@ const CharacterCard =(props)=> {
                     alt={`Foto de ${props.character.name}`}
                     title={`Foto de ${props.character.name}`}></img>
                 <h4 className="character__data">{props.character.name}</h4>
-                <p className="character__data">{`${props.character.species}`}</p>
+                <p className="character__data">{`${props.character.species}`}</p>               
             </Link>
         </li>)
 

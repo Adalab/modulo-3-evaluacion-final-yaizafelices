@@ -5,7 +5,7 @@ const FilterByHouse = (props) => {
     }
 
     return (
-        <>
+        <form>
             <label
                 className=""
                 htmlFor="house">Selecciona la casa:</label>
@@ -22,7 +22,7 @@ const FilterByHouse = (props) => {
                 <option value="">Otros</option>
                 <option value="all">Todas</option>
             </select>
-        </>
+        </form>
 
     );
 
