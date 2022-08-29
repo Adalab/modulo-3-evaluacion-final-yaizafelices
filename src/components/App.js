@@ -71,7 +71,7 @@ function App() {
   const dataPath = matchPath("/character/:characterId", pathname);
 
   const characterId = dataPath !== null ? dataPath.params.characterId : null;
-  const characterFound = dataCharater.find(dataCharater => { return dataCharater.id === characterId });
+  const characterFound = dataCharater.find(dataCharater => { return dataCharater.id === parseInt(characterId) });
 
 
 
@@ -90,7 +90,6 @@ function App() {
         element={
           <>
             <Filters 
-              characterFilters={characterFilters}
               handleFilterByCharacter={handleFilterByCharacter}
               filterByCharacter={filterByCharacter}
               handleFilterByHouse={handleFilterByHouse}
