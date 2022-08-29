@@ -1,22 +1,24 @@
 import FilterByCharacter from "./FilterByCharacter";
 import FilterByHouse from "./FilterByHouse";
+import Reset from "./Reset";
 import '../styles/Filters.scss';
 
 const Filters=(props)=>{
     return(
         <form className="form">
             <FilterByCharacter
-            handleFilterByCharacter={props.handleFilterByCharacter}
-            filterByCharacter={props.filterByCharacter}
+                handleFilterByCharacter={props.handleFilterByCharacter}
+                filterByCharacter={props.filterByCharacter}
             />
             <FilterByHouse
-            handleFilterByHouse={props.handleFilterByHouse}
-            filterByHouse={props.filterByHouse}
+                handleFilterByHouse={props.handleFilterByHouse}
+                filterByHouse={props.filterByHouse}
             />
-            <button className="btn-reset">
-            <i class="fa-solid fa-broom-ball"></i>
-                Reset
-            </button>
+            <Reset
+                handleFilterByCharacter={props.handleFilterByCharacter} 
+                handleFilterByHouse={props.handleFilterByHouse}
+                handleDetailUrl={props.handleDetailUrl}
+            />
         </form>
 
     )

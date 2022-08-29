@@ -26,7 +26,7 @@ function App() {
   const [dataCharater, setDataCharater] = useState(ls.get('dataCharacterLs',[]));
   const [filterByCharacter, setFilterByCharacter] = useState(ls.get('filterByCharacterLS',''));
   const [filterByHouse, setFilterByHouse] = useState(ls.get('filterByHouseLs','Gryffindor'));
-  const [detailUrl, setDetailUrl] = useState(ls.get('detailUrlLs', {}));
+  const [detailUrl, setDetailUrl] = useState(ls.get('detailURL_LS', {}));
 
     // API //
     useEffect(() => {
@@ -40,7 +40,7 @@ function App() {
       ls.set('dataCharactersLs', dataCharater);
       ls.set('filterByCharacterLS', filterByCharacter);
       ls.set('filterByHouseLs', filterByHouse);
-      ls.set('detailUrlLs', detailUrl);
+      ls.set('detailURL_LS', detailUrl);
     }, [dataCharater, filterByCharacter, filterByHouse, detailUrl ]);
 
 
@@ -107,10 +107,12 @@ function App() {
               filterByCharacter={filterByCharacter}
               handleFilterByHouse={handleFilterByHouse}
               filterByHouse={filterByHouse}
+              handleDetailUrl={handleDetailUrl}
             />
             <CharacterList 
               dataCharater={characterFilters}
               handleDetailUrl={handleDetailUrl}
+              detailUrl={detailUrl}
 
             />
 

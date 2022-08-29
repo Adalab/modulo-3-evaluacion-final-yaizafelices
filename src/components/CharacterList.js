@@ -4,9 +4,9 @@ import '../styles/CharacterList.scss';
 
 const CharacterList=(props) =>{
 
-    const characterElements = props.dataCharater.map((item) => {
+    const characterElements = props.dataCharater.map((character, index) => {
         return (
-            <CharacterCard character={item} key={item.id}               detailURL={props.detailURL}
+            <CharacterCard character={character} key={index}               detailURL={props.detailURL}
             handleDetailURL={props.handleDetailURL} />
         );
     });

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import imageDefault from '../images/imageDefault.jpg';
 
 const CharacterCard =(props)=> {
-    const handleUrl = (ev) => {
+    const handleUrl = () => {
         props.handleDetailURL(window.location);
       };
 
