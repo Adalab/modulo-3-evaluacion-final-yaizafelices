@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "./static/css/main.0948153c.css",
-    "main.js": "./static/js/main.366bbb67.js",
+    "main.js": "./static/js/main.05571813.js",
     "static/media/background3.png": "./static/media/background3.3500e06dae1a2a331310.png",
     "static/media/imageDefault.jpg": "./static/media/imageDefault.ad1e38688d7fb568ef79.jpg",
     "static/media/header-hp.png": "./static/media/header-hp.f56b67d8b79489d11a0c.png",
     "index.html": "./index.html",
     "main.0948153c.css.map": "./static/css/main.0948153c.css.map",
-    "main.366bbb67.js.map": "./static/js/main.366bbb67.js.map"
+    "main.05571813.js.map": "./static/js/main.05571813.js.map"
   },
   "entrypoints": [
     "static/css/main.0948153c.css",
-    "static/js/main.366bbb67.js"
+    "static/js/main.05571813.js"
   ]
 }
