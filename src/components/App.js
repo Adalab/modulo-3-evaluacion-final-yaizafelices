@@ -1,4 +1,4 @@
-//HOOKS//
+// HOOKS //
 import React from "react";
 import '../styles/App.scss';
 import { useState, useEffect } from "react";
@@ -7,10 +7,11 @@ import { matchPath, Route, Routes, useLocation } from "react-router-dom";
 
 
 
-//SERVICES//
+// SERVICES //
 import getDataApi from '../services/charactersHarryPotterApi';
+import ls from '../services/localStorage';
 
-//COMPONENTS//
+// COMPONENTS //
 import Header from "./Header";
 import Filters from "./Filters";
 import CharacterList from "./CharacterList";
@@ -20,22 +21,30 @@ import Footer from "./Footer";
 
 function App() {
 
-  //STATE VARIABLES//
+  // STATE VARIABLES //
 
-  const [dataCharater, setDataCharater] = useState([]);
-  const [filterByCharacter, setFilterByCharacter] = useState("");
-  const [filterByHouse, setFilterByHouse] = useState("Gryffindor");
+  const [dataCharater, setDataCharater] = useState(ls.get('dataCharacterLs',[]));
+  const [filterByCharacter, setFilterByCharacter] = useState(ls.get('filterByCharacterLS',''));
+  const [filterByHouse, setFilterByHouse] = useState(ls.get('filterByHouseLs','Gryffindor'));
+  const [detailUrl, setDetailUrl] = useState(ls.get('detailUrlLs', {}));
 
-    // FETCH //
+    // API //
     useEffect(() => {
       getDataApi().then((dataFromApi) => {
-        console.log(dataFromApi);
         setDataCharater(dataFromApi);
       })
     }, []);
 
+    // LOCAL STORAGE //
+    useEffect(() => {
+      ls.set('dataCharactersLs', dataCharater);
+      ls.set('filterByCharacterLS', filterByCharacter);
+      ls.set('filterByHouseLs', filterByHouse);
+      ls.set('detailUrlLs', detailUrl);
+    }, [dataCharater, filterByCharacter, filterByHouse, detailUrl ]);
 
-    //FILTER BY CHARACTER AND BY HOUSE//
+
+    // FILTER BY CHARACTER AND BY HOUSE //
     const handleFilterByCharacter = (value)=>{
       setFilterByCharacter(value);
     }
@@ -43,6 +52,10 @@ function App() {
     const handleFilterByHouse = (value)=>{
       setFilterByHouse(value);
     }
+
+    const handleDetailUrl = (value) => {
+      setDetailUrl(value);
+    };
 
     const characterFilters = dataCharater
     .filter((character) => {
@@ -65,7 +78,7 @@ function App() {
 
 
 
-      //OBTAIN ID OF THE CHARACTER SELECTED//
+      // OBTAIN ID OF THE CHARACTER SELECTED //
   const { pathname } = useLocation();
   console.log(pathname);
   const dataPath = matchPath("/character/:characterId", pathname);
@@ -95,7 +108,10 @@ function App() {
               handleFilterByHouse={handleFilterByHouse}
               filterByHouse={filterByHouse}
             />
-            <CharacterList dataCharater={characterFilters}
+            <CharacterList 
+              dataCharater={characterFilters}
+              handleDetailUrl={handleDetailUrl}
+
             />
 
           </>
@@ -103,7 +119,11 @@ function App() {
         <Route 
         path="/character/:characterId" 
         element={
-          <CharacterDetail character={characterFound}/>
+          <CharacterDetail
+            character={characterFound}
+            detailUrl={detailUrl}
+
+          />
           }/>
           
 

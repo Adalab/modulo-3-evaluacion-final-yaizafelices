@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import imageDefault from '../images/imageDefault.jpg';
 
 const CharacterCard =(props)=> {
+    const handleUrl = (ev) => {
+        props.handleDetailURL(window.location);
+      };
 
     if (props.character.image === "") {
         props.character.image = imageDefault;
@@ -9,7 +12,7 @@ const CharacterCard =(props)=> {
 
     return (
         <li className="character">
-            <Link to={`/character/${props.character.id}`}>
+            <Link to={`/character/${props.character.id}`} onClick={handleUrl}>
                 <article>
                     <img
                         src={props.character.image}
