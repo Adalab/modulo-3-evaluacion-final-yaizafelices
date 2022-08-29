@@ -4,6 +4,8 @@ const Reset = (props) => {
     props.handleFilterByCharacter('');
     props.handleFilterByHouse('Gryffindor');
     props.handleDetailUrl('');
+    
+    
   };
   return (
     <button className="btn-reset" onClick={handleReset}>
