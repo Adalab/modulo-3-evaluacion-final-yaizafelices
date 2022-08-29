@@ -12,7 +12,8 @@ const FilterByCharacter = (props) => {
             type="text" 
             id="FilterByCharacter" 
             onChange={handleFilterByCharacter} 
-            value={props.filterByCharacter} />
+            value={props.filterByCharacter}
+            onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }} />
         </fieldset>
     );
 

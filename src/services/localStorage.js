@@ -1,14 +1,15 @@
 const get = (key, defaultData) => {
-    const data = localStorage.getItem(key);
-    if (data === null) {
+    const dataLocalStorage = localStorage.getItem(key);
+    if (dataLocalStorage === null) {
       return defaultData;
     } else {
-      return JSON.parse(data);
+      return JSON.parse(dataLocalStorage);
     }
   };
   
   const set = (key, value) => {
-    localStorage.setItem(key, JSON.stringify(value));
+    const dataLocalStorage = JSON.stringify(value);
+    localStorage.setItem(key, dataLocalStorage);
   };
 
   const remove = (key) => {

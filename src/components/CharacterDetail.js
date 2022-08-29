@@ -1,17 +1,19 @@
 import { Link } from "react-router-dom";
 import '../styles/CharacterDetail.scss';
 
+
 const CharacterDetail=(props) =>{
+    
 
     return (
         <section className="detail">
             <Link to='/' className='detail__link'>
                     <p >Volver</p>
-                    <i class="fa-solid fa-wand-sparkles"></i>
+                    <i className="fa-solid fa-wand-sparkles"></i>
             </Link>
                 <article className="detail__card">
                     <img
-                        src={props.character.image}
+                        src={props.character.image }
                         className="detail__card-image"
                         alt={`Foto de ${props.character.name}`}
                         title={`Foto de ${props.character.name}`}>

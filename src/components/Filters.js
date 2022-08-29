@@ -4,8 +4,11 @@ import Reset from "./Reset";
 import '../styles/Filters.scss';
 
 const Filters=(props)=>{
+    const handleSubmit = (event) => {
+        event.preventDefault();
+      };
     return(
-        <form className="form">
+        <form className="form" onSubmit={handleSubmit}>
             <FilterByCharacter
                 handleFilterByCharacter={props.handleFilterByCharacter}
                 filterByCharacter={props.filterByCharacter}
@@ -17,7 +20,7 @@ const Filters=(props)=>{
             <Reset
                 handleFilterByCharacter={props.handleFilterByCharacter} 
                 handleFilterByHouse={props.handleFilterByHouse}
-                handleDetailUrl={props.handleDetailUrl}
+                handleDetailURL={props.handleDetailURL}
             />
         </form>
 

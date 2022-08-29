@@ -1,8 +1,8 @@
 const getDataApi = () => {
     return fetch("http://hp-api.herokuapp.com/api/characters")
         .then(response => response.json())
-        .then(data => {
-            const dataClean = data.map((character, index) => {
+        .then((data) => {
+            const dataClean = data.map((character,index) => {
                 return {
                     id: index,
                     image: character.image,
@@ -13,6 +13,7 @@ const getDataApi = () => {
                     gender: character.gender,
                     alternate_names: character.alternate_names,
                     ancestry: character.ancestry,
+                    
                 }
             });
             return dataClean;

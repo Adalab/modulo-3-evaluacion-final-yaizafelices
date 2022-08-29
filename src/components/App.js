@@ -24,9 +24,10 @@ function App() {
   // STATE VARIABLES //
 
   const [dataCharater, setDataCharater] = useState(ls.get('dataCharacterLs',[]));
-  const [filterByCharacter, setFilterByCharacter] = useState(ls.get('filterByCharacterLS',''));
-  const [filterByHouse, setFilterByHouse] = useState(ls.get('filterByHouseLs','Gryffindor'));
-  const [detailUrl, setDetailUrl] = useState(ls.get('detailURL_LS', {}));
+  const [filterByCharacter, setFilterByCharacter] = useState(ls.get('filterByCharacterLs',''));
+  const [filterByHouse, setFilterByHouse] = useState('Gryffindor');
+  const [detailURL, setDetailURL] = useState(ls.get('detailURL_LS', {}));
+
 
     // API //
     useEffect(() => {
@@ -35,13 +36,13 @@ function App() {
       })
     }, []);
 
-    // LOCAL STORAGE //
-    useEffect(() => {
-      ls.set('dataCharactersLs', dataCharater);
-      ls.set('filterByCharacterLS', filterByCharacter);
-      ls.set('filterByHouseLs', filterByHouse);
-      ls.set('detailURL_LS', detailUrl);
-    }, [dataCharater, filterByCharacter, filterByHouse, detailUrl ]);
+     // LOCAL STORAGE //
+     useEffect(() => {
+       ls.set('dataCharactersLs', dataCharater);
+       ls.set('filterByCharacterLs', filterByCharacter);
+       ls.set('detailURL_LS', detailURL);
+
+     }, [dataCharater, filterByCharacter, detailURL]);
 
 
     // FILTER BY CHARACTER AND BY HOUSE //
@@ -53,9 +54,10 @@ function App() {
       setFilterByHouse(value);
     }
 
-    const handleDetailUrl = (value) => {
-      setDetailUrl(value);
+    const handleDetailURL = (value) => {
+      setDetailURL(value);
     };
+
 
     const characterFilters = dataCharater
     .filter((character) => {
@@ -80,11 +82,10 @@ function App() {
 
       // OBTAIN ID OF THE CHARACTER SELECTED //
   const { pathname } = useLocation();
-  console.log(pathname);
-  const dataPath = matchPath("/character/:characterId", pathname);
+  const dataPath = matchPath('/character/:characterId', pathname);
 
   const characterId = dataPath !== null ? dataPath.params.characterId : null;
-  const characterFound = dataCharater.find(dataCharater => { return dataCharater.id === parseInt(characterId) });
+  const characterFound = dataCharater.find((dataCharater) => { return dataCharater.id === parseInt(characterId) });
 
 
 
@@ -97,6 +98,7 @@ function App() {
   return (
     <div className="completeHtml">
       <Header />
+      <main>
       <Routes>
         <Route 
         path="/" 
@@ -107,30 +109,29 @@ function App() {
               filterByCharacter={filterByCharacter}
               handleFilterByHouse={handleFilterByHouse}
               filterByHouse={filterByHouse}
-              handleDetailUrl={handleDetailUrl}
+              handleDetailURL={handleDetailURL}
             />
             <CharacterList 
               dataCharater={characterFilters}
-              handleDetailUrl={handleDetailUrl}
-              detailUrl={detailUrl}
-
+              detailURL={detailURL}
+              handleDetailURL={handleDetailURL}
             />
 
           </>
         }/>
         <Route 
-        path="/character/:characterId" 
+        path='/character/:characterId'
         element={
           <CharacterDetail
             character={characterFound}
-            detailUrl={detailUrl}
-
+            detailURL={detailURL}
           />
           }/>
           
 
 
       </Routes>
+      </main>
       <Footer />
     </div>
   );

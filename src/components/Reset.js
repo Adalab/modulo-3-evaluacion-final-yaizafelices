@@ -3,13 +3,13 @@ const Reset = (props) => {
     event.preventDefault();
     props.handleFilterByCharacter('');
     props.handleFilterByHouse('Gryffindor');
-    props.handleDetailUrl('');
+    props.handleDetailURL('');
     
     
   };
   return (
     <button className="btn-reset" onClick={handleReset}>
-    <i class="fa-solid fa-broom-ball"></i>
+    <i className="fa-solid fa-broom-ball"></i>
         Reset
     </button>
   );
