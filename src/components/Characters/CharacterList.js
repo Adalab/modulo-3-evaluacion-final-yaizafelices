@@ -12,9 +12,11 @@ const CharacterList=(props) =>{
         )});
     if (props.dataCharater.length === 0) {
             return (
-                <p className="list-false">
-                  No hemos encontrado un personaje con las siguientes características:
-                </p>
+                <div className="list__false">
+                    <p className="list__false-text1">
+                    El personaje que buscas no se encuentra en el mapa del merodeador.</p>
+                    <p className="list__false-text2">Pincha en reset y pronuncia travesura realizada</p>
+                </div>
             );
           }    
 
