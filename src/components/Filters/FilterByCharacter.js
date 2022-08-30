@@ -4,13 +4,15 @@ const FilterByCharacter = (props) => {
         props.handleFilterByCharacter(event.target.value);
     }
 
+
     return (
         <fieldset className="filter">
             <label className="filter__label" htmlFor="FilterByCharacter">Buscar por personaje</label>
             <input 
             className="filter__input"
             type="text" 
-            id="FilterByCharacter" 
+            id="FilterByCharacter"
+            placeholder="Ej.: Severus Snape" 
             onChange={handleFilterByCharacter} 
             value={props.filterByCharacter}
             onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }} />

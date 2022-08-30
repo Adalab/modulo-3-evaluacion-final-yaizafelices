@@ -1,5 +1,5 @@
 import CharacterCard from './CharacterCard';
-import '../styles/CharacterList.scss';
+import '../../styles/CharacterList.scss';
 
 
 const CharacterList=(props) =>{
@@ -7,10 +7,11 @@ const CharacterList=(props) =>{
     const characterElements = props.dataCharater.map((character, index) => {
         return (
             <CharacterCard character={character} key={index}               detailURL={props.detailURL}
-            handleDetailURL={props.handleDetailURL}          
+            handleDetailURL={props.handleDetailURL}
+            changeImage={props.changeImage}          
             />
-        );
-    });
+        )});
+
 
     return (
         <section>
@@ -19,6 +20,8 @@ const CharacterList=(props) =>{
             </ul>
         </section >
     )
+
+    
 
 
 

@@ -1,7 +1,8 @@
 import FilterByCharacter from "./FilterByCharacter";
 import FilterByHouse from "./FilterByHouse";
-import Reset from "./Reset";
-import '../styles/Filters.scss';
+import FilterByGender from "./FilterByGender";
+import Reset from "../Reset";
+import '../../styles/Filters.scss';
 
 const Filters=(props)=>{
     const handleSubmit = (event) => {
@@ -17,9 +18,14 @@ const Filters=(props)=>{
                 handleFilterByHouse={props.handleFilterByHouse}
                 filterByHouse={props.filterByHouse}
             />
+            <FilterByGender
+                handleFilterByGender={props.handleFilterByGender}
+                filterByGender={props.filterByGender}
+            />
             <Reset
                 handleFilterByCharacter={props.handleFilterByCharacter} 
                 handleFilterByHouse={props.handleFilterByHouse}
+                handleFilterByGender={props.handleFilterByGender}
                 handleDetailURL={props.handleDetailURL}
             />
         </form>

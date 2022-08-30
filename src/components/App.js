@@ -5,6 +5,9 @@ import { useState, useEffect } from "react";
 import { matchPath, Route, Routes, useLocation } from "react-router-dom";
 //import PropTypes from 'prop-types';
 
+// IMAGES //
+import imageDefault from '../images/imageDefault.jpg';
+
 
 
 // SERVICES //
@@ -13,9 +16,9 @@ import ls from '../services/localStorage';
 
 // COMPONENTS //
 import Header from "./Header";
-import Filters from "./Filters";
-import CharacterList from "./CharacterList";
-import CharacterDetail from "./CharacterDetail";
+import Filters from "./Filters/Filters";
+import CharacterList from "./Characters/CharacterList";
+import CharacterDetail from "./Characters/CharacterDetail";
 import Footer from "./Footer";
 
 
@@ -26,7 +29,9 @@ function App() {
   const [dataCharater, setDataCharater] = useState(ls.get('dataCharacterLs',[]));
   const [filterByCharacter, setFilterByCharacter] = useState(ls.get('filterByCharacterLs',''));
   const [filterByHouse, setFilterByHouse] = useState('Gryffindor');
+  const [filterByGender, setFilterByGender] = useState("all");
   const [detailURL, setDetailURL] = useState(ls.get('detailURL_LS', {}));
+
 
 
     // API //
@@ -45,7 +50,7 @@ function App() {
      }, [dataCharater, filterByCharacter, detailURL]);
 
 
-    // FILTER BY CHARACTER AND BY HOUSE //
+    // FILTER BY CHARACTER, BY HOUSE AND BY GENDER//
     const handleFilterByCharacter = (value)=>{
       setFilterByCharacter(value);
     }
@@ -53,6 +58,10 @@ function App() {
     const handleFilterByHouse = (value)=>{
       setFilterByHouse(value);
     }
+
+    const handleFilterByGender = (value) => {
+      setFilterByGender(value);
+    };
 
     const handleDetailURL = (value) => {
       setDetailURL(value);
@@ -73,7 +82,18 @@ function App() {
         else {return (character.house === filterByHouse);
         }
       })
+      .filter((character) => {
+        return filterByGender === "all" ? true : character.gender === filterByGender;})
     
+// FUNCTION OF IMAGES IF ARE NOT FOUND//
+const changeImage = (image) => {
+  return image === '' ? imageDefault : image;
+};
+
+// FUNCTION FOR INPUT CHARACTER //
+const getInputCharacter = () => {
+  return filterByCharacter;
+};
 
   
 
@@ -109,10 +129,14 @@ function App() {
               filterByCharacter={filterByCharacter}
               handleFilterByHouse={handleFilterByHouse}
               filterByHouse={filterByHouse}
+              handleFilterByGender={handleFilterByGender}
+              filterByGender={filterByGender}
               handleDetailURL={handleDetailURL}
             />
             <CharacterList 
               dataCharater={characterFilters}
+              changeImage={changeImage}
+              getInputCharacter={getInputCharacter()}
               detailURL={detailURL}
               handleDetailURL={handleDetailURL}
             />
@@ -123,8 +147,9 @@ function App() {
         path='/character/:characterId'
         element={
           <CharacterDetail
-            character={characterFound}
+            characterFound={characterFound}
             detailURL={detailURL}
+            changeImage={changeImage}
           />
           }/>
           

@@ -3,6 +3,7 @@ const Reset = (props) => {
     event.preventDefault();
     props.handleFilterByCharacter('');
     props.handleFilterByHouse('Gryffindor');
+    props.handleFilterByGender('all');
     props.handleDetailURL('');
     
     
