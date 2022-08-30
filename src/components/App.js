@@ -30,7 +30,7 @@ function App() {
   const [filterByCharacter, setFilterByCharacter] = useState(ls.get('filterByCharacterLs',''));
   const [filterByHouse, setFilterByHouse] = useState(ls.get('filterByHouseLs','Gryffindor'));
   const [filterByGender, setFilterByGender] = useState(ls.get('filterByGenderLs','all'));
-  const [detailURL, setDetailURL] = useState(ls.get('detailURL_LS', {}));
+
 
 
 
@@ -47,9 +47,8 @@ function App() {
        ls.set('filterByCharacterLs', filterByCharacter);
        ls.set('filterByHouseLs', filterByHouse);
        ls.set('filterByGenderLs', filterByGender);
-       ls.set('detailURL_LS', detailURL);
 
-     }, [dataCharater, filterByCharacter,filterByHouse, filterByGender,detailURL]);
+     }, [dataCharater, filterByCharacter,filterByHouse, filterByGender]);
 
 
     // FILTER BY CHARACTER, BY HOUSE AND BY GENDER//
@@ -65,9 +64,6 @@ function App() {
       setFilterByGender(value);
     };
 
-    const handleDetailURL = (value) => {
-      setDetailURL(value);
-    };
 
 
     const characterFilters = dataCharater
@@ -104,10 +100,10 @@ const getInputCharacter = () => {
 
       // OBTAIN ID OF THE CHARACTER SELECTED //
   const { pathname } = useLocation();
-  const dataPath = matchPath('/character/:characterId', pathname);
+  const dataPath = matchPath('/character/:id', pathname);
 
-  const characterId = dataPath !== null ? dataPath.params.characterId : null;
-  const characterFound = dataCharater.find((dataCharater) => { return dataCharater.id === parseInt(characterId) });
+  const characterId = dataPath !== null ? dataPath.params.id : null;
+  const characterFound = dataCharater.find((dataCharater) => { return dataCharater.id === (characterId) });
 
 
 
@@ -133,24 +129,22 @@ const getInputCharacter = () => {
               filterByHouse={filterByHouse}
               handleFilterByGender={handleFilterByGender}
               filterByGender={filterByGender}
-              handleDetailURL={handleDetailURL}
+
             />
             <CharacterList 
               dataCharater={characterFilters}
               changeImage={changeImage}
               getInputCharacter={getInputCharacter()}
-              detailURL={detailURL}
-              handleDetailURL={handleDetailURL}
+
             />
 
           </>
         }/>
         <Route 
-        path='/character/:characterId'
+        path='/character/:id'
         element={
           <CharacterDetail
             characterFound={characterFound}
-            detailURL={detailURL}
             changeImage={changeImage}
           />
           }/>

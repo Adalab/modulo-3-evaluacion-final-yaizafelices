@@ -6,8 +6,7 @@ const CharacterList=(props) =>{
 
     const characterElements = props.dataCharater.map((character, index) => {
         return (
-            <CharacterCard character={character} key={index}               detailURL={props.detailURL}
-            handleDetailURL={props.handleDetailURL}
+            <CharacterCard character={character} key={index}               
             changeImage={props.changeImage}          
             />
         )});

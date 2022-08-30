@@ -26,7 +26,6 @@ const Filters=(props)=>{
                 handleFilterByCharacter={props.handleFilterByCharacter} 
                 handleFilterByHouse={props.handleFilterByHouse}
                 handleFilterByGender={props.handleFilterByGender}
-                handleDetailURL={props.handleDetailURL}
             />
         </form>
 

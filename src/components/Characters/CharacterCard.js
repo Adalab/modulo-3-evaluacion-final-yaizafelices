@@ -3,15 +3,9 @@ import { Link } from "react-router-dom";
 
 const CharacterCard =(props)=> {
 
-    const handleUrl = () => {
-        props.handleDetailURL(window.location);
-      };
-    
-
-
     return (
         <li className="character" id={props.character.id}>
-            <Link to={`character/${props.character.id}`} onClick={handleUrl}>
+            <Link to={`character/${props.character.id}`}>
                 <article>
                     <img
                         src={props.changeImage(props.character.image) }

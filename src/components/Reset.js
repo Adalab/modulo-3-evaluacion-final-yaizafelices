@@ -4,7 +4,6 @@ const Reset = (props) => {
     props.handleFilterByCharacter('');
     props.handleFilterByHouse('Gryffindor');
     props.handleFilterByGender('all');
-    props.handleDetailURL('');
     
     
   };

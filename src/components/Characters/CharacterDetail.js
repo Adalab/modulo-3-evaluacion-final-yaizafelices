@@ -3,13 +3,30 @@ import '../../styles/CharacterDetail.scss';
 
 
 const CharacterDetail=(props) =>{
+    const characterAlive = (alive) => {
+        if (alive === true) {
+            return (<p>Estatus: Vivo <i className="fa-solid fa-heart icon-alive"></i></p>)
+        }
+        else {
+            return <p>Estatus: Muerto <i className="fa-solid fa-skull-crossbones icon-dead"></i></p>
+        }
+    }
+
+    const characterGender = () => {
+        if (props.characterFound.gender === 'female') {
+            return <p>Género: Femenino <i class="fa-solid fa-venus icon-genre"></i></p>
+        }
+        else {
+            return <p>Género: Masculino <i className="fa-solid fa-mars icon-genre"></i></p>
+        }
+    }
     
 
     return (
         <section className="detail">
             <Link to='/' className='detail__link'>
                     <p >Volver</p>
-                    <i className="fa-solid fa-wand-sparkles"></i>
+                    <i className="fa-solid fa-wand-sparkles icon-return"></i>
             </Link>
                 <article className="detail__card">
                     <img
@@ -21,8 +38,8 @@ const CharacterDetail=(props) =>{
                     <div className="detail__card-data">
                         <h4>{props.characterFound.name}</h4>
                         <p>{`Casa: ${props.characterFound.house}`}</p>
-                        <p>{`Estatus: ${props.characterFound.alive}`}</p>
-                        <p>{`Género: ${props.characterFound.gender}`}</p>
+                        <p>{characterAlive(props.characterFound.alive)}</p>
+                        <p>{characterGender(props.characterFound.gender)}</p>
                         <p>{`Especie: ${props.characterFound.species}`}</p>
                         <p>{`Mote: ${props.characterFound.alternate_names}`}</p>
                     </div>

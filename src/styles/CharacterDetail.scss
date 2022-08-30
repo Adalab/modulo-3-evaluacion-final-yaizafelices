@@ -53,14 +53,23 @@
         }}
         &-data{
             grid-column: 2/3;
-    
         }
-
     }
  
-
 }
 
-.fa-solid{
-    color: aliceblue;
+.icon{
+    &-return{
+        color: aliceblue;
+    }
+    &-alive{
+        color: red;
+    }
+    &-dead{
+        color: black;
+    }
+    &-genre{
+        color: aqua;
+    }
+    
 }

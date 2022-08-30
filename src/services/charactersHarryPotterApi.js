@@ -1,10 +1,11 @@
+import { v4 as uuid } from 'uuid';
 const getDataApi = () => {
     return fetch("http://hp-api.herokuapp.com/api/characters")
         .then(response => response.json())
         .then((data) => {
-            const dataClean = data.map((character,index) => {
+            const dataClean = data.map((character) => {
                 return {
-                    id: index,
+                    id: uuid(),
                     image: character.image,
                     name: character.name,
                     species: character.species,
