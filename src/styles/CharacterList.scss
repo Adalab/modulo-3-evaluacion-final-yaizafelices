@@ -4,6 +4,14 @@
     justify-content: center;
     list-style-type: none;
 
+    &-false{
+        margin: 70px 0 700px;
+        color: rgb(77, 17, 17);
+        font-size: 40px;
+        background-color: grey;
+
+    }
+
 }
 
 .character{

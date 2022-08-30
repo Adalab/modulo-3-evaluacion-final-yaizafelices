@@ -14,7 +14,7 @@ const CharacterDetail=(props) =>{
 
     const characterGender = () => {
         if (props.characterFound.gender === 'female') {
-            return <p>Género: Femenino <i class="fa-solid fa-venus icon-genre"></i></p>
+            return <p>Género: Femenino <i className="fa-solid fa-venus icon-genre"></i></p>
         }
         else {
             return <p>Género: Masculino <i className="fa-solid fa-mars icon-genre"></i></p>
@@ -38,8 +38,8 @@ const CharacterDetail=(props) =>{
                     <div className="detail__card-data">
                         <h4>{props.characterFound.name}</h4>
                         <p>{`Casa: ${props.characterFound.house}`}</p>
-                        <p>{characterAlive(props.characterFound.alive)}</p>
-                        <p>{characterGender(props.characterFound.gender)}</p>
+                        {characterAlive(props.characterFound.alive)}
+                        {characterGender(props.characterFound.gender)}
                         <p>{`Especie: ${props.characterFound.species}`}</p>
                         <p>{`Mote: ${props.characterFound.alternate_names}`}</p>
                     </div>

@@ -10,6 +10,13 @@ const CharacterList=(props) =>{
             changeImage={props.changeImage}          
             />
         )});
+    if (props.dataCharater.length === 0) {
+            return (
+                <p className="list-false">
+                  No hemos encontrado un personaje con las siguientes características:
+                </p>
+            );
+          }    
 
 
     return (
