@@ -1,7 +1,7 @@
-const get = (key, defaultData) => {
+const get = (key, defaultValue) => {
     const dataLocalStorage = localStorage.getItem(key);
     if (dataLocalStorage === null) {
-      return defaultData;
+      return defaultValue;
     } else {
       return JSON.parse(dataLocalStorage);
     }

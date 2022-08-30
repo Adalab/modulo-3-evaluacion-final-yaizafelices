@@ -24,6 +24,15 @@
         }        
     }
 
+    &__error{
+        color: white;
+        background-color: rgb(192, 17, 17);
+        font-size: 20px;
+        width: 300px;
+        margin-bottom: 400px;
+
+    }
+
     &__card{
         background-color: grey;
         width: 300px;

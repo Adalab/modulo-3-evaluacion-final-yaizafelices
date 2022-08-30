@@ -3,6 +3,7 @@ import '../../styles/CharacterDetail.scss';
 
 
 const CharacterDetail=(props) =>{
+
     const characterAlive = (value) => {
         if (value === true) {
             return (<p>Estatus: Vivo <i className="fa-solid fa-heart icon-alive"></i></p>)
@@ -21,7 +22,19 @@ const CharacterDetail=(props) =>{
         }
     }
 
+    if (!props.characterFound) {
+        return (
+          <>
+            <Link to='/' className='detail__link'>
+                    <p >Volver</p>
+                    <i className="fa-solid fa-wand-sparkles icon-return"></i>
+            </Link>
+            <p className="detail__error">Personaje No Encontrado</p>
+          </>
+        );
+      }
 
+      else{
     return (
         <section className="detail">
             <Link to='/' className='detail__link'>
@@ -44,6 +57,6 @@ const CharacterDetail=(props) =>{
                         <p>{`Mote: ${props.characterFound.alternate_names}`}</p>
                     </div>
                 </article>
-        </section>)
+        </section>)}
 }
 export default CharacterDetail;
