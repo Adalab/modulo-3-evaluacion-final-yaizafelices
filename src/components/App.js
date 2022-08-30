@@ -83,7 +83,7 @@ function App() {
       .filter((character) => {
         return filterByGender === "all" ? true : character.gender === filterByGender;})
 
-        // FILTER LIST BY ALPHABETIC ORDER //
+        // ORDER LIST BY ALPHABETIC CHARACTERS //
       .sort(function (a, b) {
         if (a.name > b.name) {
             return 1;
