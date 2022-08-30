@@ -144,6 +144,7 @@ const getInputCharacter = () => {
               dataCharater={characterFilters}
               changeImage={changeImage}
               getInputCharacter={getInputCharacter()}
+              characterFound={characterFound}
 
             />
 

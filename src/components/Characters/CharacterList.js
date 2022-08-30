@@ -7,7 +7,7 @@ const CharacterList=(props) =>{
     const characterElements = props.dataCharater.map((character, index) => {
         return (
             <CharacterCard character={character} key={index}               
-            changeImage={props.changeImage}          
+            changeImage={props.changeImage} characterFound={props.characterFound}         
             />
         )});
     if (props.dataCharater.length === 0) {

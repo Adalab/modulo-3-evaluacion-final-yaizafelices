@@ -3,8 +3,8 @@ import '../../styles/CharacterDetail.scss';
 
 
 const CharacterDetail=(props) =>{
-    const characterAlive = (alive) => {
-        if (alive === true) {
+    const characterAlive = (value) => {
+        if (value === true) {
             return (<p>Estatus: Vivo <i className="fa-solid fa-heart icon-alive"></i></p>)
         }
         else {
@@ -20,7 +20,7 @@ const CharacterDetail=(props) =>{
             return <p>Género: Masculino <i className="fa-solid fa-mars icon-genre"></i></p>
         }
     }
-    
+
 
     return (
         <section className="detail">
@@ -28,7 +28,7 @@ const CharacterDetail=(props) =>{
                     <p >Volver</p>
                     <i className="fa-solid fa-wand-sparkles icon-return"></i>
             </Link>
-                <article className="detail__card">
+                <article className={`detail__card detail__card__${props.characterFound.house}`}>
                     <img
                         src={props.changeImage(props.characterFound.image) }
                         className="detail__card-image"
