@@ -28,8 +28,8 @@ function App() {
 
   const [dataCharater, setDataCharater] = useState(ls.get('dataCharacterLs',[]));
   const [filterByCharacter, setFilterByCharacter] = useState(ls.get('filterByCharacterLs',''));
-  const [filterByHouse, setFilterByHouse] = useState('Gryffindor');
-  const [filterByGender, setFilterByGender] = useState("all");
+  const [filterByHouse, setFilterByHouse] = useState(ls.get('filterByHouseLs','Gryffindor'));
+  const [filterByGender, setFilterByGender] = useState(ls.get('filterByGenderLs','all'));
   const [detailURL, setDetailURL] = useState(ls.get('detailURL_LS', {}));
 
 
@@ -45,9 +45,11 @@ function App() {
      useEffect(() => {
        ls.set('dataCharactersLs', dataCharater);
        ls.set('filterByCharacterLs', filterByCharacter);
+       ls.set('filterByHouseLs', filterByHouse);
+       ls.set('filterByGenderLs', filterByGender);
        ls.set('detailURL_LS', detailURL);
 
-     }, [dataCharater, filterByCharacter, detailURL]);
+     }, [dataCharater, filterByCharacter,filterByHouse, filterByGender,detailURL]);
 
 
     // FILTER BY CHARACTER, BY HOUSE AND BY GENDER//

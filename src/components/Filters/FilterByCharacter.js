@@ -15,7 +15,7 @@ const FilterByCharacter = (props) => {
             placeholder="Ej.: Severus Snape" 
             onChange={handleFilterByCharacter} 
             value={props.filterByCharacter}
-            onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }} />
+            onKeyPress={(event) => { event.key === 'Enter' && event.preventDefault(); }} />
         </fieldset>
     );
 
