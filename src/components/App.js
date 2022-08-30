@@ -82,6 +82,17 @@ function App() {
       })
       .filter((character) => {
         return filterByGender === "all" ? true : character.gender === filterByGender;})
+
+        // FILTER LIST BY ALPHABETIC ORDER //
+      .sort(function (a, b) {
+        if (a.name > b.name) {
+            return 1;
+        }
+        if (a.name < b.name) {
+            return -1;
+        }
+        return 0;
+        });
     
 // FUNCTION OF IMAGES IF ARE NOT FOUND//
 const changeImage = (image) => {
@@ -109,9 +120,7 @@ const getInputCharacter = () => {
 
 
          
-    
-
-
+  
   
   return (
     <div className="completeHtml">
